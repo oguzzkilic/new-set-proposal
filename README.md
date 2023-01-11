@@ -1,28 +1,24 @@
 # New Set Proposal
 
-Set, ADT (Abstract Data Types) grubundan bir veri yapısıdır. Aynı zamanda matematik paradigmalarından referans alınan bir veri grubudur ve kümeyi referans alır.
+Set is a data structure from the ADT (Abstract Data Types) group. It is also a data group referred to from mathematical paradigms and refers to the set. 
 
 ## Overview
 
-Tıpkı matematikte olduğu gibi **unorder** veya **unindex** olarak dizilirler. Her eleman **benzersizdir**.
+Just like in mathematics, they are arranged unordered or unindexed. Each element is unique. In mathematics, they are arranged in the form of {1,2,3}. In programming, an array-based set is usually used in the form of [1,2,3].
 
-Matematikte **{1,2,3}** şeklinde dizilirler. Programlamada array tabanlı **set** çoğu zaman **[1,2,3]** şeklinde kullanılmaktadır.
+When an empty Set returns in mathematics 0, in programming it usually returns false.
 
-Küme, bir kadın çantasına benzer. İçinde ne olduğu bellidir ancak hangi sırayla yerleştirildiği belli değildir. İnsan, hayvan, telefon numaraları veya kategoriler birer set elemanı olabilir. Kesiştiği noktalar ve ayrıştığı noktalar olabilir.
+The set can be changed. Addition and removal can be made. With frozen set (e.g. Python), modification cannot be done.
 
-İçi boş olan **Set** matematikte **0** döndürürken, programlamada genellikle **false** döndürür.
+In JavaScript, Set can contain values and reference data types of any type. If an Array can contain different reference types, Set can contain them.
 
-Set değişebilir. Ekleme ve silme yapılabilir. **Frozen** olan set ile (örn: Python) değiştirme işlemi yapılamaz.
+In many programming languages, we can't contain references in Array. Pascal and Perl are examples of languages that best use the Set feature.
 
-JavaScript'de **Set** her türde değer ve referans veri tipini içerisinde barındırabilir. Bir **Array** kendisi gibi farklı referans tiplerini içerisinde barındırabiliyorsa **Set**'de barındırabilir.
-
-Bir çok programlama dilinde **Array** içerisinde referans barındıramayız. **Set** özelliğini en iyi kullanan programalama dillerinden **Pascal** ve **Perl** örnek olarak gösterilebilir.
-
-## Motivasyon
-JavaScript'te yer alan **Set** Matematikte tanımlanan **Set** ile aynı özellikleri barındırmamaktadır. Daha uzun kodlar yazarak bu işlemleri gerçekleştirebiliyoruz. Performans ve implementasyon açısından bakıldığında daha fazla efor sarfetmemiz gerekiyor. Farklı dillerde varsayılan Set metodlarının JavaScript'te de olması gerekliliktir. Harici kütüphaneler kullanmadan daha efektif bir şekilde zamandan tasarruf edilebilir.
+## Motivation
+JavaScript does not have the same features as the Set defined in Mathematics. We can accomplish these tasks by writing longer codes, but from a performance and implementation perspective, we need to put in more effort. It is necessary for there to be default Set methods in JavaScript, just like in other languages, so that we can save time without using external libraries.
 
 ### Set.prototype.union
-İki Set'i birleştirerek yeni bir Set oluşturmak için aşağıdaki gibi bir yol izlememiz gerekmektedir;
+To create a new Set by combining two Sets, we must follow the following path;
 
 `X ∪ Y = { x | x ∈ X or x ∈ Y}`
 
@@ -66,9 +62,9 @@ function union(setA, setB) {
 ```js
 union(setA, setC);
 ```
-ya da Lodash, Underscore gibi yardımcı kütüphaneler kullanmak zorundayız.
+We need to utilize helper libraries like Lodash, Underscore, etc.
 
-Varsayımsal olarak iki Set verisini aşağıdaki gibi birleştirebiliriz;
+We can combine two sets of data theoretically as follows;
 
 #### js new:
 
@@ -94,7 +90,7 @@ console.log(unionPrototype);
 ### Set.prototype.difference
 *Relative Complement:
 
-İki **Set** arasındaki farkı şu şekilde ifade ederiz;
+The difference between two Sets can be expressed as follows;
 `X - Y = { x | x ∈ X and x ∉ Y}`
 
 ![difference](https://res.cloudinary.com/duxhkuady/image/upload/v1531749343/ArraySet/difference.png)
@@ -135,7 +131,7 @@ setA.difference(setC);
 ```
 
 ### Set.prototype.common
-İki **Set**'in kesişimini şu şekilde ifade ederiz,
+We can express the intersection of two Sets as follows.
 `X ∩ Y = { x | x ∈ X and x ∈ Y}`
 
 #### python:
